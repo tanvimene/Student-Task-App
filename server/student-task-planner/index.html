@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Task Planner</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header>
+      <div>
+        <p class="small-title">STUDENT TASK PLANNER</p>
+        <h1>Student Task Planner</h1>
+        <p class="subtitle">Manage your tasks, assignments and study schedule.</p>
+      </div>
+
+      <button class="add-btn" onclick="openForm()">+ Add New Task</button>
+    </header>
+
+    <!-- Statistics -->
+    <section class="stats">
+
+      <div class="stat-card">
+        <div class="icon blue">📋</div>
+        <div>
+          <p>Total Tasks</p>
+          <h2 id="totalTasks">0</h2>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="icon yellow">⏳</div>
+        <div>
+          <p>Pending</p>
+          <h2 id="pendingTasks">0</h2>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="icon green">✓</div>
+        <div>
+          <p>Completed</p>
+          <h2 id="completedTasks">0</h2>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="icon red">!</div>
+        <div>
+          <p>High Priority</p>
+          <h2 id="highTasks">0</h2>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Tasks -->
+    <div class="task-heading">
+      <div>
+        <h2>Your Tasks</h2>
+        <p id="taskCount">0 tasks available</p>
+      </div>
+
+      <button class="refresh-btn" onclick="displayTasks()">↻ Refresh</button>
+    </div>
+
+    <div id="taskList" class="task-grid"></div>
+
+  </div>
+
+  <!-- Form Modal -->
+  <div id="formModal" class="modal">
+
+    <div class="form-box">
+
+      <button class="close" onclick="closeForm()">×</button>
+
+      <p class="small-title">NEW TASK</p>
+      <h1 id="formTitle">Create a task</h1>
+      <p class="subtitle">Enter the details to add a task to your study planner.</p>
+
+      <form id="taskForm">
+
+        <label>Task Title *</label>
+        <input type="text" id="title" placeholder="Enter task title" required>
+
+        <label>Description *</label>
+        <textarea id="description" placeholder="Enter task description" required></textarea>
+
+        <div class="two-columns">
+
+          <div>
+            <label>Category *</label>
+            <select id="category">
+              <option>Study</option>
+              <option>Assignment</option>
+              <option>Project</option>
+              <option>Personal</option>
+            </select>
+          </div>
+
+          <div>
+            <label>Priority *</label>
+            <select id="priority">
+              <option>Medium</option>
+              <option>High</option>
+              <option>Low</option>
+            </select>
+          </div>
+
+        </div>
+
+        <label>Due Date *</label>
+        <input type="date" id="dueDate" required>
+
+        <div class="form-buttons">
+          <button type="button" class="cancel-btn" onclick="closeForm()">Cancel</button>
+          <button type="submit" class="save-btn">Save Task</button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
